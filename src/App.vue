@@ -1,218 +1,221 @@
   <script setup>
-  import { computed, reactive, ref, watch } from 'vue'
+  // import { computed, reactive, ref, watch } from 'vue'
+  import HelloWorld from './components/HelloWorld.vue'
+  import Basics from './components/Basics.vue'
 
-  const firstName = "Preksha";
+  // const firstName = "Preksha";
 
-  const lastName = "<p style=\"color:blue\">Rana</p>";
+  // const lastName = "<p style=\"color:blue\">Rana</p>";
 
-  const objAttribute = {
-    id: 'container',
-    class: 'wrapper',
-    style: 'background-color:pink; color:white; margin-top:5px;padding:10px; border-radius:10px;width:200px;'
-  };
+  // const objAttribute = {
+  //   id: 'container',
+  //   class: 'wrapper',
+  //   style: 'background-color:pink; color:white; margin-top:5px;padding:10px; border-radius:10px;width:200px;'
+  // };
 
-  const classObj = {
-    active: true,
-    'text-danger': false
-  };
+  // const classObj = {
+  //   active: true,
+  //   'text-danger': false
+  // };
 
-  const styleObj = {
-    color: 'red',
-    fontSize: '20px'
-  };
+  // const styleObj = {
+  //   color: 'red',
+  //   fontSize: '20px'
+  // };
 
-  const obj = reactive({
-    name: 'Preksha',
-    age: 22,
-    city: 'Delhi'
-  });
+  // const obj = reactive({
+  //   name: 'Preksha',
+  //   age: 22,
+  //   city: 'Delhi'
+  // });
 
-  function showData() {
-    obj.name = 'Prekshii';
-  };
+  // function showData() {
+  //   obj.name = 'Prekshii';
+  // };
 
-  const awesome = ref(true);
+  // const awesome = ref(true);
 
-  const parentMessage = ref('Parent')
-  const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
+  // const parentMessage = ref('Parent')
+  // const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 
-  const isPromoted = true;
-  const isSoldOut = false;
+  // const isPromoted = true;
+  // const isSoldOut = false;
 
-  const isDisplay = true;
+  // const isDisplay = true;
 
-  const names = ['Damon', 'Elena', 'Stefan', 'Caroline', 'Bonnie', 'Matt'];
+  // const names = ['Damon', 'Elena', 'Stefan', 'Caroline', 'Bonnie', 'Matt'];
 
-  const fullNames = [
-    { name: 'Damon', surname: 'Salvatore' },
-    { name: 'Elena', surname: 'Gilbert' },
-    { name: 'Stefan', surname: 'Salvatore' },
-    { name: 'Caroline', surname: 'Forbes' },
-    { name: 'Bonnie', surname: 'Bennett' },
-    { name: 'Matt', surname: 'Donovan' }
-  ];
+  // const fullNames = [
+  //   { name: 'Damon', surname: 'Salvatore' },
+  //   { name: 'Elena', surname: 'Gilbert' },
+  //   { name: 'Stefan', surname: 'Salvatore' },
+  //   { name: 'Caroline', surname: 'Forbes' },
+  //   { name: 'Bonnie', surname: 'Bennett' },
+  //   { name: 'Matt', surname: 'Donovan' }
+  // ];
 
-  const actors = [
-    {
-      name: 'Ian Somerhalder',
-      series: ['The Vampire Diaries', 'Lost'],
-    },
-    {
-      name: 'Nina Dobrev',
-      series: ['The Vampire Diaries', 'Degrassi: The Next Generation'],
-    }
-  ]
+  // const actors = [
+  //   {
+  //     name: 'Ian Somerhalder',
+  //     series: ['The Vampire Diaries', 'Lost'],
+  //   },
+  //   {
+  //     name: 'Nina Dobrev',
+  //     series: ['The Vampire Diaries', 'Degrassi: The Next Generation'],
+  //   }
+  // ]
 
-  const count = ref(0);
-  const name = ref('Preksha');
-  function increment(num, event) {
-    count.value++;
-    console.log(event);
-  };
-  function decrement(num, event) {
-    count.value--;
-    console.log(event);
-  };
+  // const count = ref(0);
+  // const name = ref('Preksha');
+  // function increment(num, event) {
+  //   count.value++;
+  //   console.log(event);
+  // };
+  // function decrement(num, event) {
+  //   count.value--;
+  //   console.log(event);
+  // };
 
-  function changeName() {
-    name.value = 'Prekshii';
-  }
+  // function changeName() {
+  //   name.value = 'Prekshii';
+  // }
 
-  const formValues = reactive({
-    name: '',
-    profileSummary: '',
-    country: '',
-    jobLocation: [],
-    remoteWork: 'no',
-    skillSet: [],
-    yearsOfExperience: '',
-    age: null,
-  });
+  // const formValues = reactive({
+  //   name: '',
+  //   profileSummary: '',
+  //   country: '',
+  //   jobLocation: [],
+  //   remoteWork: 'no',
+  //   skillSet: [],
+  //   yearsOfExperience: '',
+  //   age: null,
+  // });
 
-  function submitForm() {
-    console.log(formValues);
-    alert('Form submitted successfully!');
-  }
+  // function submitForm() {
+  //   console.log(formValues);
+  //   alert('Form submitted successfully!');
+  // }
 
-  const products = reactive([
-    {
-      id: 1,
-      title: 'TV',
-      price: 100,
-    },
-    {
-      id: 2,
-      title: 'Phone',
-      price: 200,
-    },
-    {
-      id: 3,
-      title: 'Laptop',
-      price: 300,
-    },
-  ]);
+  // const products = reactive([
+  //   {
+  //     id: 1,
+  //     title: 'TV',
+  //     price: 100,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Phone',
+  //     price: 200,
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'Laptop',
+  //     price: 300,
+  //   },
+  // ]);
 
-  const total = computed(() => {
-    return products.reduce((acc, item) => acc + item.price, 0);
-  });
+  // const total = computed(() => {
+  //   return products.reduce((acc, item) => acc + item.price, 0);
+  // });
 
-  const getExpensiveProducts = computed(() => {
-    return products.filter((item) => item.price > 100);
-  });
+  // const getExpensiveProducts = computed(() => {
+  //   return products.filter((item) => item.price > 100);
+  // });
 
-  const fullNameRef = ref('Preksha Rana');
+  // const fullNameRef = ref('Preksha Rana');
 
-  function changeFullName() {
-    fullNameRef.value = 'Het Shah';
-  }
-  const fullNameComputed = computed({
-    get() {
-      return `${fName.value} ${lName.value}`;
-    },
-    set(newValue) {
-      const parts = newValue.split(' ');
-      fName.value = parts[0] || '';
-      lName.value = parts[1] || '';
-    }
-  });
+  // function changeFullName() {
+  //   fullNameRef.value = 'Het Shah';
+  // }
+  // const fullNameComputed = computed({
+  //   get() {
+  //     return `${fName.value} ${lName.value}`;
+  //   },
+  //   set(newValue) {
+  //     const parts = newValue.split(' ');
+  //     fName.value = parts[0] || '';
+  //     lName.value = parts[1] || '';
+  //   }
+  // });
 
-  const volume = ref(0);
-  const movie = ref('Inception');
-  const movieInfo = reactive({
-    title: 'Interstellar',
-    actor: 'Matthew McConaughey'
-  });
-  const movieList = ref(['Avatar', 'Titanic']);
+  // const volume = ref(0);
+  // const movie = ref('Inception');
+  // const movieInfo = reactive({
+  //   title: 'Interstellar',
+  //   actor: 'Matthew McConaughey'
+  // });
+  // const movieList = ref(['Avatar', 'Titanic']);
 
-  watch(volume, (newValue, oldValue) => {
-    if (newValue > oldValue && newValue === 16) {
-      alert('Listening to a high volume for a long time may damage your hearing');
-    }
-  }, { immediate: true });
+  // watch(volume, (newValue, oldValue) => {
+  //   if (newValue > oldValue && newValue === 16) {
+  //     alert('Listening to a high volume for a long time may damage your hearing');
+  //   }
+  // }, { immediate: true });
 
-  watch(movie, (newValue) => {
-    console.log(`Calling API with movie name = ${newValue}`);
-  }, { immediate: true });
+  // watch(movie, (newValue) => {
+  //   console.log(`Calling API with movie name = ${newValue}`);
+  // }, { immediate: true });
 
-  watch(movieInfo, (newValue) => {
-    console.log(`Calling API with movie title = ${newValue.title} and actor = ${newValue.actor}`);
-  }, { immediate:true,deep: true });
+  // watch(movieInfo, (newValue) => {
+  //   console.log(`Calling API with movie title = ${newValue.title} and actor = ${newValue.actor}`);
+  // }, { immediate:true,deep: true });
 
-  watch(movieList, (newValue) => {
-    console.log(`Updated list ${newValue}`);
-  }, { deep: true });
+  // watch(movieList, (newValue) => {
+  //   console.log(`Updated list ${newValue}`);
+  // }, { deep: true });
 
+  const personName = 'Preksha Rana';
 </script>
 
   <template>
     <!-- Text Interpolation -->
-    <h1>Hello, <span>{{ firstName }}</span><span v-html="lastName"></span></h1>
+    <!-- <h1>Hello, <span>{{ firstName }}</span><span v-html="lastName"></span></h1> -->
 
     <!-- Boolean Attribute Binding -->
-    <button :disabled="true">Click Me</button>
+    <!-- <button :disabled="true">Click Me</button> -->
 
     <!-- Attribute Binding using object -->
-    <div v-bind="objAttribute">Hello World!</div>
+    <!-- <div v-bind="objAttribute">Hello World!</div> -->
 
     <!-- Class and Style attribute binding using object -->
-    <p :class="classObj" :style="styleObj">This is a paragraph</p>
+    <!-- <p :class="classObj" :style="styleObj">This is a paragraph</p> -->
 
     <!-- Event Handling -->
-    <button @click="showData">Show Data</button>
+    <!-- <button @click="showData">Show Data</button>
     <p>{{ obj.name }} {{ obj.age }} {{ obj.city }}</p>
 
-    <button @click="awesome = !awesome">Toggle</button>
+    <button @click="awesome = !awesome">Toggle</button> -->
 
     <!-- Conditional Rendering -->
-    <h1 v-if="awesome">Vue is awesome!</h1>
-    <h1 v-else>Oh no 😢</h1>
+    <!-- <h1 v-if="awesome">Vue is awesome!</h1>
+    <h1 v-else>Oh no 😢</h1> -->
 
     <!-- List Rendering -->
-    <li v-for="(item, index) in items" :key="index">
+    <!-- <li v-for="(item, index) in items" :key="index">
       {{ parentMessage }} - {{ index }} - {{ item.message }}
     </li>
     <br>
     <li v-for="(value, key) in obj" :key="key">{{ key }}:{{ value }}</li>
-    <br>
+    <br> -->
 
     <!-- Binding Classes -->
-    <p v-bind:class="isPromoted && 'promoted'">Promoted Movies</p>
+    <!-- <p v-bind:class="isPromoted && 'promoted'">Promoted Movies</p>
     <p v-bind:class="isSoldOut ? 'sold-out' : 'new'">Sold Out Movies</p>
     <p v-bind:class="[isPromoted && 'promoted', isSoldOut ? 'sold-out' : 'new']">Promoted New Movies</p>
     <p v-bind:class="{
       'promoted': isPromoted,
       'sold-out': isSoldOut,
       'new': !isSoldOut
-    }">Promoted New Movies</p>
+    }">Promoted New Movies</p> -->
 
     <!-- Conditional Rendering -->
-    <template v-if="isDisplay">
+    <!-- <template v-if="isDisplay">
       <h2>Preksha</h2>
       <h2>ranapreksha8@gmail.com</h2>
-    </template>
+    </template> -->
 
     <!-- List Rendering -->
-    <h3 class="list" v-for="name in names" :key="name">{{ name }}</h3><br>
+    <!-- <h3 class="list" v-for="name in names" :key="name">{{ name }}</h3><br>
     <h3 class="list" v-for="(fullName, index) in fullNames" :key="index">
       {{ fullName.name }} {{ fullName.surname }}
     </h3>
@@ -222,17 +225,17 @@
       <ul>
         <li v-for="(series, index) in actor.series" :key="index">{{ series }}</li>
       </ul>
-    </div>
+    </div> -->
 
     <!-- Event Handling -->
-    <p>{{ name }}</p>
+    <!-- <p>{{ name }}</p>
     <p>{{ count }}</p>
     <button @click="changeName(), increment(1, $event)">Increment</button>
-    <button @click="changeName(), decrement(1, $event)">Decrement</button>
+    <button @click="changeName(), decrement(1, $event)">Decrement</button> -->
 
 
     <!-- Form Handling -->
-    <div>
+    <!-- <div>
       <pre>
     {{ JSON.stringify(formValues, null, 2) }}
   </pre>
@@ -294,24 +297,24 @@
       <div>
         <button>Submit</button>
       </div>
-    </form>
+    </form> -->
 
     <!-- Directive -->
-    <button v-once @click="name = 'changedName'">{{ name }}</button>
+    <!-- <button v-once @click="name = 'changedName'">{{ name }}</button>
 
-    <p v-pre>{{ name }}</p>
+    <p v-pre>{{ name }}</p> -->
 
 
     <!-- Computed Properties -->
-    <p>{{ total }}</p>
+    <!-- <p>{{ total }}</p>
 
-    <button @click="products.push({ id: 4, title: 'Tablet', price: 400 })">Add Product</button>
+    <button @click="products.push({ id: 4, title: 'Tablet', price: 400 })">Add Product</button> -->
 
     <!-- <template v-for="product in products" :key="product.id">
       <p v-if="product.price > 100">{{ product.title }} - {{ product.price }}</p>  
     </template> -->
 
-    <p v-for="product in getExpensiveProducts" :key="product.id">
+    <!-- <p v-for="product in getExpensiveProducts" :key="product.id">
       {{ product.title }} - {{ product.price }}
     </p>
 
@@ -333,11 +336,16 @@
       <input type="text" v-model="movieInfo.actor" placeholder="Movie Year" />
 
       <button @click="movieList.push('Lost')">Add Movie</button>
-    </div>
+    </div> -->
+
+    <!-- Components -->
+    <HelloWorld :personName="personName" />
+
+    <Basics/>
   </template>
 
 <style scoped>
-.promoted {
+/* .promoted {
   color: green;
   font-size: 20px;
 }
@@ -386,5 +394,5 @@ select {
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
+} */
 </style>
