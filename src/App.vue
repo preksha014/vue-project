@@ -3,6 +3,13 @@
   import HelloWorld from './components/HelloWorld.vue'
   import Basics from './components/Basics.vue'
 
+  import ComponentA from './components/ComponentA.vue';
+
+  import Popup from './components/Popup.vue';
+
+  import { provide,ref,defineEmits } from 'vue'
+
+  defineEmits(['close'])
   // const firstName = "Preksha";
 
   // const lastName = "<p style=\"color:blue\">Rana</p>";
@@ -164,7 +171,13 @@
   //   console.log(`Updated list ${newValue}`);
   // }, { deep: true });
 
-  const personName = 'Preksha Rana';
+  const personName = '';
+  const age=22;
+
+  provide('personName',personName);
+
+  const showPopup=ref(false);
+
 </script>
 
   <template>
@@ -339,9 +352,14 @@
     </div> -->
 
     <!-- Components -->
-    <HelloWorld :personName="personName" />
+    <HelloWorld :personName="personName" :age="age"/>
 
     <Basics/>
+
+    <ComponentA />
+
+    <button @click="showPopup=true">Show Popup</button>
+    <Popup v-show="showPopup" @close="showPopup=false"/>
   </template>
 
 <style scoped>

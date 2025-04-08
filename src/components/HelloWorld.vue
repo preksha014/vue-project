@@ -1,10 +1,19 @@
-<script setup>
-defineProps(['personName'])
+<script setup> 
+defineProps({
+  personName: {
+    type: String,
+    required: true
+  },
+  age: {
+    type: Number,
+    default: 0
+  }
+});
 </script>
 
 <template>
   <div class="greetings">
-    <h1 class="heading">Hello, {{ personName }}</h1>
+    <h1 class="heading">Hello, {{ personName }} {{ age }}</h1>
   </div>
 </template>
 
@@ -16,4 +25,6 @@ defineProps(['personName'])
 .heading {
   color: green;
 }
+
+
 </style>
