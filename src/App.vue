@@ -7,7 +7,13 @@
 
   import Popup from './components/Popup.vue';
 
-  import { provide,ref,defineEmits } from 'vue'
+  import { provide, ref, defineEmits } from 'vue'
+
+  import Input from './components/Input.vue';
+
+  import Card from './components/Card.vue';
+
+  import NameList from './components/NameList.vue';
 
   defineEmits(['close'])
   // const firstName = "Preksha";
@@ -172,12 +178,13 @@
   // }, { deep: true });
 
   const personName = '';
-  const age=22;
+  const age = 22;
 
-  provide('personName',personName);
+  provide('personName', personName);
 
-  const showPopup=ref(false);
+  const showPopup = ref(false);
 
+  const inputValue = ref('');
 </script>
 
   <template>
@@ -352,14 +359,45 @@
     </div> -->
 
     <!-- Components -->
-    <HelloWorld :personName="personName" :age="age"/>
+    <HelloWorld :personName="personName" :age="age" />
 
-    <Basics/>
+    <Basics />
 
     <ComponentA />
 
-    <button @click="showPopup=true">Show Popup</button>
-    <Popup v-show="showPopup" @close="showPopup=false"/>
+    <button @click="showPopup = true">Show Popup</button>
+    <Popup v-show="showPopup" @close="showPopup = false" />
+
+    <Input v-model="inputValue" />
+
+    <Card></Card>
+    <Card>This is card content1</Card>
+    <Card><h2>This is card content2</h2></Card>
+    <Card>
+      <template v-slot:header>
+        <h1>Header Slot</h1>
+      </template>
+      <template v-slot:default>
+        <h2>Content Slot</h2>
+        <p>This is the content of card.</p>
+      </template>
+      <template v-slot:footer>
+        <h3>Footer Slot</h3>
+        <p>This is the footer of card.</p>
+      </template>
+    </Card>
+    
+    <NameList>
+      <template v-slot:default="slotProps">
+        {{ slotProps.name }}
+      </template>
+    </NameList>
+
+    <NameList>
+      <template v-slot:default="slotProps">
+        {{ slotProps.id }} - {{ slotProps.name }}
+      </template>
+    </NameList>
   </template>
 
 <style scoped>
