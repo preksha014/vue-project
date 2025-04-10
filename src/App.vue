@@ -1,21 +1,27 @@
   <script setup>
   // import { computed, reactive, ref, watch } from 'vue'
-  import HelloWorld from './components/HelloWorld.vue'
-  import Basics from './components/Basics.vue'
+  // import HelloWorld from './components/HelloWorld.vue'
+  // import Basics from './components/Basics.vue'
 
   import ComponentA from './components/ComponentA.vue';
 
-  import Popup from './components/Popup.vue';
+  // import Popup from './components/Popup.vue';
 
   import { provide, ref, defineEmits } from 'vue'
 
-  import Input from './components/Input.vue';
+  // import Input from './components/Input.vue';
 
   import Card from './components/Card.vue';
 
   import NameList from './components/NameList.vue';
 
-  defineEmits(['close'])
+  import TabA from './components/TabA.vue';
+  import TabB from './components/TabB.vue';
+  import TabC from './components/TabC.vue';
+
+  import PostList from './components/PostList.vue';
+  import CreatePost from './components/CreatePost.vue';
+  // defineEmits(['close'])
   // const firstName = "Preksha";
 
   // const lastName = "<p style=\"color:blue\">Rana</p>";
@@ -79,7 +85,7 @@
   // ]
 
   // const count = ref(0);
-  // const name = ref('Preksha');
+  const name = ref('Preksha');
   // function increment(num, event) {
   //   count.value++;
   //   console.log(event);
@@ -177,14 +183,21 @@
   //   console.log(`Updated list ${newValue}`);
   // }, { deep: true });
 
-  const personName = '';
-  const age = 22;
+  // const personName = '';
+  // const age = 22;
 
-  provide('personName', personName);
+  // provide('personName', personName);
 
-  const showPopup = ref(false);
+  // const showPopup = ref(false);
 
-  const inputValue = ref('');
+  // const inputValue = ref('');
+
+  const activeTab = ref('TabA');
+  const tabMap = {
+  TabA,
+  TabB,
+  TabC
+}
 </script>
 
   <template>
@@ -398,9 +411,26 @@
         {{ slotProps.id }} - {{ slotProps.name }}
       </template>
     </NameList>
+
+    <!-- Dynamic components -->
+      <button @click="activeTab='TabA'">Tab A</button>
+      <button @click="activeTab='TabB'">Tab B</button>
+      <button @click="activeTab='TabC'">Tab C</button>
+
+      <keep-alive>
+        <component :is="tabMap[activeTab]" />
+      </keep-alive>
+    
+    <!-- <TabA v-if="activeTab === 'TabA'" />
+    <TabB v-else-if="activeTab === 'TabB'" />
+    <TabC v-else-if="activeTab === 'TabC'" /> -->
+
+    <PostList />
+    <CreatePost />
+    <ComponentA/>   
   </template>
 
-<style scoped>
+<style scoped>  
 /* .promoted {
   color: green;
   font-size: 20px;
